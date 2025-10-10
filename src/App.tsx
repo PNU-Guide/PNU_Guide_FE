@@ -1,11 +1,7 @@
+import Login from './Login.jsx';
+
 function App() {
-  return (
-    <>
-      <div className="bg-pgSky text-white p-4 rounded-xl">
-        Hello Tailwind!
-      </div>{' '}
-    </>
-  );
+  return <Login />;
 }
 
 export default App;
