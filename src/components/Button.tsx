@@ -33,6 +33,8 @@ const Button: React.FC<ButtonProps> = ({
   const variantStyles = {
     primary:
       'bg-kakaoYellow text-kakaoBrown hover:bg-kakaoYellowHover active:bg-kakaoYellowActive disabled:bg-background-disabled disabled:text-text-disabled',
+    secondary:
+      'bg-gray-200 text-gray-800 hover:bg-gray-300 active:bg-gray-400 disabled:bg-background-disabled disabled:text-text-disabled', // 'secondary' 스타일에 대한 정의를 추가합니다.
   };
 
   return (
