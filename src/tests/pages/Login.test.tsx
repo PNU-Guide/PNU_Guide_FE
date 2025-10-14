@@ -1,8 +1,8 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect, vi, beforeEach } from 'vitest';
-import Login from './Login';
+
+import Login from '../../../src/pages/Login.tsx';
 
 // 테스트 환경에서는 window.alert가 없으므로, 모의 함수로 대체합니다.
 // 이를 통해 alert가 호출되었는지 여부를 테스트에서 확인할 수 있습니다.
@@ -12,7 +12,7 @@ describe('Login 페이지', () => {
   // beforeEach: 각 테스트 케이스가 실행되기 전에 실행되는 함수입니다.
   // 여기서는 각 테스트가 독립적으로 실행되도록 alert 모의 함수의 호출 기록을 초기화합니다.
   beforeEach(() => {
-    vi.clearAllMocks();
+    vi.restoreAllMocks();
   });
 
   test('페이지의 주요 UI 요소들이 올바르게 렌더링되어야 합니다.', () => {

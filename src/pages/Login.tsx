@@ -1,13 +1,13 @@
 import React from 'react';
-import Button from './Button.jsx';
 
 // 표준에 따라 에셋은 src/assets 폴더에서 관리하는 것을 권장합니다.
-import kakaoIcon from './카카오로그인.png';
-import pnuLogo from './로고.png';
-import pnuLogoText from './PNUGUIDE.png';
-import backgroundImage from './부산대배경.png';
+import pnuLogoText from '../assets/PNUGUIDE.png';
+import pnuLogo from '../assets/로고.png';
+import backgroundImage from '../assets/부산대배경.png';
+import kakaoIcon from '../assets/카카오로그인.png';
+import Button from '../components/Button.tsx';
 
-const Login = () => {
+const Login: React.FC = () => {
   const handleLogin = () => {
     // TODO: 실제 카카오 로그인 로직으로 교체
     alert('카카오로 시작하기!');

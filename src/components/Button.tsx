@@ -1,5 +1,14 @@
 import React from 'react';
 
+interface ButtonProps {
+  variant?: 'primary' | 'secondary';
+  children: React.ReactNode;
+  onClick: () => void;
+  icon?: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+}
+
 /**
  * 공용 버튼 컴포넌트
  * @param {object} props
@@ -10,7 +19,7 @@ import React from 'react';
  * @param {string} [props.className] - 추가적인 스타일 클래스
  * @param {boolean} [props.disabled=false] - 비활성화 여부
  */
-const Button = ({
+const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   children,
   onClick,

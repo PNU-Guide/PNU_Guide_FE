@@ -1,8 +1,8 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { describe, test, expect, vi } from 'vitest';
-import Button from './Button';
+
+import Button from '../../components/Button.tsx';
 
 // describe: 'Button 컴포넌트'라는 테스트 그룹을 정의합니다.
 describe('Button 컴포넌트', () => {
@@ -13,7 +13,7 @@ describe('Button 컴포넌트', () => {
     const buttonText = '테스트 버튼';
 
     // Act (실행): 테스트할 컴포넌트를 렌더링합니다.
-    render(<Button>{buttonText}</Button>);
+    render(<Button onClick={() => {}}>{buttonText}</Button>);
 
     // Assert (검증): `screen.getByRole`을 사용하여 의미론적으로 버튼을 찾고,
     // 해당 버튼이 문서에 존재하는지 확인합니다.
@@ -40,7 +40,11 @@ describe('Button 컴포넌트', () => {
   test('icon prop이 제공되면 아이콘을 렌더링해야 합니다.', () => {
     // Arrange
     const icon = <img src="icon.svg" alt="아이콘" />;
-    render(<Button icon={icon}>아이콘 버튼</Button>);
+    render(
+      <Button onClick={() => {}} icon={icon}>
+        아이콘 버튼
+      </Button>,
+    );
 
     // Assert
     // `getByAltText`를 사용하여 alt 속성으로 이미지를 찾습니다. 웹 접근성에 중요합니다.
