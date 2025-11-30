@@ -2,15 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 import chatIcon from '@/assets/icons/ic-chat.svg';
-import courseIcon from '@/assets/icons/ic-course.svg';
-import homeIcon from '@/assets/icons/ic-home.svg';
-import mapIcon from '@/assets/icons/ic-map.svg';
-import myIcon from '@/assets/icons/ic-my.svg';
-import spotIcon from '@/assets/icons/ic-spot.svg';
 import AutumnSpotSection from '@/components/home/AutumnSpotSection';
 import CategoryGrid from '@/components/home/CategoryGrid';
 import HeroCarousel from '@/components/home/HeroCarousel';
 import TourPhotoSection from '@/components/home/TourPhotoSection';
+import BottomNavigation from '@/components/navigation/BottomNavigation';
 import { typographyMixin } from '@/theme/theme';
 
 const Root = styled.div`
@@ -80,24 +76,6 @@ const Emoji = styled.span`
   font-size: 17px;
 `;
 
-const BottomNav = styled.nav`
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  max-width: 420px;
-  width: 100%;
-  background-color: ${({ theme }) => theme.palette.surface.nav};
-  box-shadow: ${({ theme }) => theme.elevation.nav};
-  padding: ${({ theme }) => theme.spacing(1.25)}
-    ${({ theme }) => theme.spacing(3)};
-  display: flex;
-  justify-content: space-between;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  z-index: 20;
-`;
-
 const ChatFab = styled.button`
   position: fixed;
   right: ${({ theme }) => theme.spacing(3)};
@@ -135,29 +113,6 @@ const ChatFab = styled.button`
   }
 `;
 
-const NavItem = styled.button<{ $active?: boolean }>`
-  flex: 1;
-  background: none;
-  border: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: ${({ theme }) => theme.spacing(0.5)};
-  color: ${({ $active, theme }) =>
-    $active ? theme.palette.primary.main : theme.palette.text.secondary};
-  ${typographyMixin('caption')};
-  font-family: ${({ theme }) => theme.typography.fontFamily};
-
-  img {
-    width: 22px;
-    height: 22px;
-    object-fit: contain;
-    filter: ${({ $active }) =>
-      $active ? 'none' : 'grayscale(100%) brightness(0.6)'};
-  }
-`;
-
 const HomePage: React.FC = () => {
   return (
     <Root>
@@ -192,28 +147,7 @@ const HomePage: React.FC = () => {
         <span>챗봇</span>
       </ChatFab>
 
-      <BottomNav aria-label="하단 내비게이션">
-        <NavItem $active aria-label="홈">
-          <img src={homeIcon} alt="" />
-          <span>홈</span>
-        </NavItem>
-        <NavItem aria-label="코스">
-          <img src={courseIcon} alt="" />
-          <span>코스</span>
-        </NavItem>
-        <NavItem aria-label="지도">
-          <img src={mapIcon} alt="" />
-          <span>지도</span>
-        </NavItem>
-        <NavItem aria-label="스팟">
-          <img src={spotIcon} alt="" />
-          <span>스팟</span>
-        </NavItem>
-        <NavItem aria-label="MY">
-          <img src={myIcon} alt="" />
-          <span>MY</span>
-        </NavItem>
-      </BottomNav>
+      <BottomNavigation active="home" />
     </Root>
   );
 };

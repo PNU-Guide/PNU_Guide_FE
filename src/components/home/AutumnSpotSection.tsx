@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import humanitiesImg from '@/assets/images/humanities-building.jpg';
-import libraryImg from '@/assets/images/saebyeok-library.jpg';
+import { courseSpots } from '@/components/course/courseSpots';
 import { typographyMixin } from '@/theme/theme';
 
 const ScrollRow = styled.div`
@@ -74,32 +73,14 @@ const BuildingInfo = styled.p`
   color: ${({ theme }) => theme.palette.text.secondary};
 `;
 
-type Spot = {
-  id: string;
-  title: string;
-  buildingNumber: string;
-  image: string;
-};
-
-const spots: Spot[] = [
-  {
-    id: 'humanities',
-    title: '인문관',
-    buildingNumber: '306',
-    image: humanitiesImg,
-  },
-  {
-    id: 'library',
-    title: '새벽벌도서관',
-    buildingNumber: '420',
-    image: libraryImg,
-  },
-];
+const featuredSpots = courseSpots.filter((spot) =>
+  ['humanities', 'saebyeok-library'].includes(spot.id),
+);
 
 const AutumnSpotSection: React.FC = () => {
   return (
-    <ScrollRow aria-label="가을 단풍 명소 리스트">
-      {spots.map((spot) => (
+    <ScrollRow aria-label="가을 캠퍼스 명소 리스트">
+      {featuredSpots.map((spot) => (
         <Card key={spot.id}>
           <Thumbnail>
             <img src={spot.image} alt={`${spot.title} 사진`} />
