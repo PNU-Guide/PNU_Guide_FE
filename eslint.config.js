@@ -16,6 +16,7 @@ export default tseslint.config(
       'prettier.config.cjs',
       'eslint.config.js',
       '*.config.js',
+      'theme.js.d.ts',
     ],
   },
   js.configs.recommended,

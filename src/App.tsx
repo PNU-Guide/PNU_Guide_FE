@@ -1,16 +1,29 @@
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/react';
+import React from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-function App() {
+import HomePage from '@/pages/HomePage';
+import theme from '@/theme/theme';
+
+export const GlobalStyle = createGlobalStyle`
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    background-color: ${theme.palette.background.default};
+    color: ${theme.palette.text.primary};
+    font-family: ${theme.typography.fontFamily};
+  }
+`;
+
+const App: React.FC = () => {
   return (
-    <>
-      <Analytics />
-      <SpeedInsights />
-      <div className="bg-pgSky text-white p-4 rounded-xl">
-        Hello Tailwind!
-      </div>{' '}
-    </>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <HomePage />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
