@@ -7,9 +7,23 @@ type TypographyVariant = {
   letterSpacing?: string;
 };
 
+type GrayScale = {
+  50: string;
+  100: string;
+  200: string;
+  300: string;
+  400: string;
+  500: string;
+  600: string;
+  700: string;
+  800: string;
+  900: string;
+};
+
 declare module 'styled-components' {
   export interface DefaultTheme {
     palette: {
+      brand: { blue: string; sky: string; green: string };
       primary: { main: string; light: string; dark: string };
       secondary: { main: string; light: string; dark: string };
       background: { default: string; paper: string; heroOverlay: string };
@@ -22,6 +36,7 @@ declare module 'styled-components' {
       divider: string;
       surface: { card: string; nav: string; chip: string };
       states: { hover: string; active: string };
+      gray: GrayScale;
     };
     typography: {
       fontFamily: string;
@@ -30,8 +45,8 @@ declare module 'styled-components' {
       subtitle1: TypographyVariant;
       body1: TypographyVariant;
       body2: TypographyVariant;
+      body3: TypographyVariant;
       caption: TypographyVariant;
-      overline: TypographyVariant;
     };
     spacing: (factor: number) => string;
     shape: {

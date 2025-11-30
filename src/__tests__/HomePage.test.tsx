@@ -1,12 +1,17 @@
 import { render, screen } from '@testing-library/react';
 import React from 'react';
+import { MemoryRouter } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
 import HomePage from '@/pages/HomePage';
 import theme from '@/theme/theme';
 
 const renderWithTheme = (ui: React.ReactElement) =>
-  render(<ThemeProvider theme={theme}>{ui}</ThemeProvider>);
+  render(
+    <MemoryRouter>
+      <ThemeProvider theme={theme}>{ui}</ThemeProvider>
+    </MemoryRouter>,
+  );
 
 describe('HomePage 화면', () => {
   test('히어로 영역의 메인 타이틀이 노출된다', () => {
