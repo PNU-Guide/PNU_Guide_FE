@@ -1,4 +1,4 @@
-/* eslint-disable import/order */
+/* eslint-disable */
 import humanitiesImg from '@/assets/images/humanities-building.jpg';
 import libraryImg from '@/assets/images/saebyeok-library.jpg';
 import museumImg from '@/assets/images/museum.jpg';

@@ -1,5 +1,3 @@
-import type { Config } from 'tailwindcss';
-
 import sharedTheme from '../../theme.js';
 
 type FontEntry = [
@@ -14,7 +12,9 @@ type TailwindTokens = {
   spacing?: Record<number, string>;
 };
 
-const tokens: TailwindTokens = (sharedTheme as Config)?.theme ?? {};
+type SharedTheme = { theme?: TailwindTokens };
+
+const tokens: TailwindTokens = (sharedTheme as SharedTheme)?.theme ?? {};
 
 export const fontFamily =
   tokens.fontFamily?.sans?.join(', ') ?? 'Pretendard, system-ui, sans-serif';
