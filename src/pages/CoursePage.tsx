@@ -162,7 +162,7 @@ const CoursePage: React.FC = () => {
           </div>
 
           <div className="flex items-center justify-between text-gray-600">
-            <span style={textStyle('body2')}>총 {totalCount}곳</span>
+            <span style={textStyle('body3')}>총 {totalCount}곳</span>
             <div className="relative flex items-center gap-2">
               <button
                 type="button"
@@ -292,16 +292,16 @@ const CoursePage: React.FC = () => {
                 ) : null}
 
                 <h3
-                  className="text-gray-800"
-                  style={{ ...textStyle('body1'), fontWeight: 600 }}
+                  className="text-left text-gray-700"
+                  style={{ ...textStyle('body1'), fontWeight: 500 }}
                 >
                   {spot.title}
                 </h3>
 
                 <p
-                  className="text-gray-600"
+                  className="text-left text-gray-600"
                   style={{
-                    ...textStyle('body2'),
+                    ...textStyle('body3'),
                     display: '-webkit-box',
                     WebkitLineClamp: spot.badge ? 2 : 4,
                     WebkitBoxOrient: 'vertical',
@@ -311,7 +311,10 @@ const CoursePage: React.FC = () => {
                   {spot.description}
                 </p>
 
-                <span className="text-gray-500" style={textStyle('caption')}>
+                <span
+                  className="text-left text-gray-400"
+                  style={textStyle('body3')}
+                >
                   건물번호: {spot.buildingNumber || '정보 없음'}
                 </span>
               </div>
