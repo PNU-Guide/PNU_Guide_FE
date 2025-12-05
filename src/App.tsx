@@ -1,7 +1,7 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import HomePage from '@/pages/HomePage';
 import theme from '@/theme/theme';
 
 export const GlobalStyle = createGlobalStyle`
@@ -11,9 +11,9 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    background-color: ${theme.palette.background.default};
-    color: ${theme.palette.text.primary};
-    font-family: ${theme.typography.fontFamily};
+    background-color: ${({ theme }) => theme.palette.background.default};
+    color: ${({ theme }) => theme.palette.text.primary};
+    font-family: ${({ theme }) => theme.typography.fontFamily};
   }
 `;
 
@@ -21,7 +21,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <HomePage />
+      <Outlet />
     </ThemeProvider>
   );
 };

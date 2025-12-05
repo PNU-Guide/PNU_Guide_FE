@@ -25,7 +25,7 @@ describe('BottomNavigation', () => {
     renderNav('course');
 
     fireEvent.click(screen.getByRole('button', { name: '홈' }));
-    expect(mockedNavigate).toHaveBeenCalledWith('/');
+    expect(mockedNavigate).toHaveBeenCalledWith('/home');
   });
 
   test('코스 탭을 누르면 /course 경로로 이동한다', () => {

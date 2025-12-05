@@ -22,7 +22,7 @@ describe('HomePage 화면', () => {
     ).toBeInTheDocument();
   });
 
-  test('카테고리 버튼 4개가 모두 렌더링된다', () => {
+  test('카테고리 버튼 4개가 모두 렌더링된다', async () => {
     renderWithTheme(<HomePage />);
 
     const labels = [
@@ -32,9 +32,10 @@ describe('HomePage 화면', () => {
       /부산대\s*유튜브/i,
     ];
 
-    labels.forEach((label) => {
-      expect(screen.getByRole('button', { name: label })).toBeInTheDocument();
-    });
+    for (const label of labels) {
+      const button = await screen.findByRole('button', { name: label });
+      expect(button).toBeInTheDocument();
+    }
   });
 
   test('가을맞이 단풍 명소 섹션 타이틀이 보인다', () => {
